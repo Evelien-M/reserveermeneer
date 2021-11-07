@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvenementen extends Migration
+class CreateEvent extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateEvenementen extends Migration
      */
     public function up()
     {
-        Schema::create('evenementen', function (Blueprint $table) {
+        Schema::create('event', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->timestamp("event_start_date");
+            $table->timestamp("event_end_date")->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->integer('max_amount_tickets');
+            $table->decimal("price");
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateEvenementen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evenementen');
+        Schema::dropIfExists('event');
     }
 }
