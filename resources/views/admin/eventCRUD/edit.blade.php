@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <form method="POST" action="/eventcrud/{{$event->id}}">
+    <form method="POST" action="/eventcrud/{{$event->id}}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
@@ -13,16 +13,16 @@
             <input type="text" class="form-control" name="name" id="name1" required value="{{$event->name}}">
         </div>
         <div class="form-group">
-            <label for="image1">Image</label>
-            <input type="text" class="form-control" id="image1" name="image" value="{{$event->image}}">
+            <label for="imageInput">Image</label>
+            <input name="input_img" type="file" id="imageInput" accept="image/png, image/gif, image/jpeg">
         </div>
         <div class="form-group">
             <label for="startdate1">Start date</label>
-            <input type="datetime-local" class="form-control" name="event_start_date" required id="startdate1" value="{{$event->event_start_date}}">
+            <input type="datetime-local" class="form-control" name="event_start_date" required id="startdate1" value="<?php echo date('Y-m-d\TH:i', strtotime($event->event_start_date)); ?>">
         </div>
         <div class="form-group">
             <label for="enddate1">End date</label>
-            <input type="datetime-local" class="form-control" name="event_end_date" required id="enddate1" value="{{$event->event_end_date}}">
+            <input type="datetime-local" class="form-control" name="event_end_date" required id="enddate1" value="<?php echo date('Y-m-d\TH:i', strtotime($event->event_end_date)); ?>">
         </div>
         <div class="form-group">
             <label for="maxtickets1">Max tickets</label>

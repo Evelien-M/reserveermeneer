@@ -8,6 +8,7 @@ use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\File; 
 
 class EventCRUDController extends Controller
 {
@@ -39,20 +40,31 @@ class EventCRUDController extends Controller
                 'event_end_date' => 'required|date',
                 'max_amount_tickets' => 'required|integer',
                 'max_amount_tickets_per_person' => 'required|integer',
-                'price' => 'required'
+                'price' => 'required',
+                'input_img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
+            $newimagename = null;
+            if (request()->hasFile('input_img')) {
+                
+                $image = request()->file('input_img');
+                $newimagename = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/events');
+                $image->move($destinationPath, $newimagename);
+            }
 
             Event::create([
                 'name' => request('name'),
-                'image' => request('image'),
+                'image' => $newimagename,
                 'event_start_date' => request('event_start_date'),
                 'event_end_date' => request('event_end_date'),
                 'max_amount_tickets' => request('max_amount_tickets'),
                 'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
                 'price' => request('price')
             ]);
+            
 
-            return redirect('/eventcrud');
+            return redirect('/eventcrud'); 
         }
         return view('event/event');
     }
@@ -75,24 +87,46 @@ class EventCRUDController extends Controller
                 'event_end_date' => 'required|date',
                 'max_amount_tickets' => 'required|integer',
                 'max_amount_tickets_per_person' => 'required|integer',
-                'price' => 'required'
+                'price' => 'required',
+                'input_img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
+            $newimagename = null;
+
+             // delete previous file
+             var_dump($event->image);
+            if ($event->image != null)
+            {
+                $file_path = public_path() . '/images/events/' . $event->image;
+                File::delete($file_path);
+            }
+            // image upload file handler
+            if (request()->hasFile('input_img')) {
+                $image = request()->file('input_img');
+                $newimagename = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/events');
+                $image->move($destinationPath, $newimagename);
+            }
+          
             $event->update([
                 'name' => request('name'),
-                'image' => request('image'),
+                'image' => $newimagename,
                 'event_start_date' => request('event_start_date'),
                 'event_end_date' => request('event_end_date'),
                 'max_amount_tickets' => request('max_amount_tickets'),
                 'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
                 'price' => request('price')
             ]);
-            return redirect('/eventcrud');
+            return redirect('/eventcrud'); 
         }
         return view('event/event');
     }  
     public function delete()
     {
         return view('event/event');
-    }  
+    }
+    
+    
+
+
 }
