@@ -17,6 +17,7 @@ class EventsTable extends Seeder
         $events = [
             [
                 "name" => "Graspop",
+                "image" => "graspop11.jpg",
                 "event_start_date" => "2021-11-09 15:33:53",
                 "event_end_date" => "2021-11-11 15:33:53",
                 "max_amount_tickets" => 400,

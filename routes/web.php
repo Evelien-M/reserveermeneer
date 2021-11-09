@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\EventCRUDController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->middleware('auth');
 
-Route::get('/eventcrud', [App\Http\Controllers\Admin\EventCRUDController::class, 'index'])->middleware('auth');
-
-Route::prefix('/eventcrud')->group( function () 
-{
-    route::post('/create', [App\Http\Controllers\Admin\EventCRUDController::class, 'create']);
-    route::put('/{id}', [App\Http\Controllers\Admin\EventCRUDController::class, 'update']);
-    route::delete('/{id}', [App\Http\Controllers\Admin\EventCRUDController::class, 'delete']);
-}
-);
+Route::get('/eventcrud', [EventCRUDController::class, 'index'])->middleware('auth');
+Route::get('/eventcrud/{event}/edit', [EventCRUDController::class, 'edit'])->middleware('auth');
+Route::put('/eventcrud/{event}', [EventCRUDController::class, 'update'])->middleware('auth');
+Route::get('/eventcrud/create', [EventCRUDController::class, 'create'])->middleware('auth');
+Route::post('/eventcrud', [EventCRUDController::class, 'store'])->middleware('auth');

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('partials.layout')
+
+@section('title','Verify')
 
 @section('content')
 <div class="container">
