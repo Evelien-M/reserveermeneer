@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventTicket extends Migration
+class CreateEventTickets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,20 @@ class CreateEventTicket extends Migration
      */
     public function up()
     {
-        Schema::create('event_ticket', function (Blueprint $table) {
+        Schema::create('event_tickets', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('events_id')->unsigned();
             $table->foreign('events_id')->references('id')->on('events')->onDelete('cascade');
             $table->string("image");
-            $table->timestamp("start_date");
-            $table->timestamp("end_date")->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->string("days");
+            $table->string('zipcode');
+            $table->string('address');
+            $table->string('city');
+            $table->string('house_number');
+            $table->string('country');
             $table->timestamps();
-            
         });
     }
 
@@ -34,6 +37,6 @@ class CreateEventTicket extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_ticket');
+        Schema::dropIfExists('event_tickets');
     }
 }

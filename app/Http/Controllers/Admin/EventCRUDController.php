@@ -44,6 +44,7 @@ class EventCRUDController extends Controller
                 'input_img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
+            // image hanlding
             $newimagename = null;
             if (request()->hasFile('input_img')) {
                 
@@ -52,7 +53,8 @@ class EventCRUDController extends Controller
                 $destinationPath = public_path('/images/events');
                 $image->move($destinationPath, $newimagename);
             }
-
+            // end imagehandling
+            
             Event::create([
                 'name' => request('name'),
                 'image' => $newimagename,
