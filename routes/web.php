@@ -21,7 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->middleware('auth');
+Route::get('/event', [App\Http\Controllers\EventController::class, 'index']);
+Route::get('/event/{event}', [App\Http\Controllers\EventItemController::class, 'index'])->middleware('auth');
+
 
 Route::get('/eventcrud', [EventCRUDController::class, 'index'])->middleware('auth');
 Route::get('/eventcrud/{event}/edit', [EventCRUDController::class, 'edit'])->middleware('auth');

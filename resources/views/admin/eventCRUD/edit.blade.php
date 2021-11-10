@@ -13,6 +13,10 @@
             <input type="text" class="form-control" name="name" id="name1" required value="{{$event->name}}">
         </div>
         <div class="form-group">
+            <label for="imageInput">Content</label>
+            <textarea class="form-control" rows="6" name="content">{{$event->content}}</textarea>
+        </div>
+        <div class="form-group">
             <label for="imageInput">Image</label>
             <input name="input_img" type="file" id="imageInput" accept="image/png, image/gif, image/jpeg">
         </div>
@@ -31,6 +35,10 @@
         <div class="form-group">
             <label for="maxticketsperperson1">Max tickets per person</label>
             <input type="number" class="form-control" name="max_amount_tickets_per_person" required id="maxticketsperperson1" value="{{$event->max_amount_tickets_per_person}}">
+        </div>
+        <div class="form-group">
+            <label for="name1">Location</label>
+            <input type="text" class="form-control" name="location" id="name1" value="{{$event->location}}" required>
         </div>
         <div class="form-group">
             <label for="price1">Price</label>
