@@ -20,14 +20,20 @@ class EventItemController extends Controller
             abort(404);
         }
         
-        return view('event/eventItem', ['event' => $event, 'dayslist' => $this->getDays($event)]);
+        return view('event/eventItem', ['event' => $event, 'dayslist' => $this->getDays($event), 'canReserve' => $this->canMakeReservation($event)]);
     }  
 
 
     public function store()
     {
+        $event = Event::whereId(request('event_id'))->first();
+        if($event == null)
+        {
+            abort(404);
+        }
+
         $checks = request()->input('datecheck');
-        if ($checks == null)
+        if ($checks == null || !$this->canMakeReservation($event))
         {
             return redirect()->back();
         }
@@ -83,5 +89,15 @@ class EventItemController extends Controller
         array_push($dayslist,$date2->format('d-m-Y'));
 
         return $dayslist;
+    }
+
+    private function canMakeReservation($event)
+    {
+        $amount = Event_ticket::all()->where('event_id',$event->id)->where('user_id',Auth::user()->id);
+        if (count($amount) >= $event->max_amount_tickets_per_person)
+        {
+            return false;
+        }
+        return true;
     }
 }

@@ -36,6 +36,8 @@ class EventCRUDController extends Controller
         {
             request()->validate([
                 'name' => 'required',
+                'content' => 'required',
+                'location' => 'required',
                 'event_start_date' => 'required|date',
                 'event_end_date' => 'required|date',
                 'max_amount_tickets' => 'required|integer',
@@ -57,11 +59,13 @@ class EventCRUDController extends Controller
             
             Event::create([
                 'name' => request('name'),
+                'content' => request('content'),
                 'image' => $newimagename,
                 'event_start_date' => request('event_start_date'),
                 'event_end_date' => request('event_end_date'),
                 'max_amount_tickets' => request('max_amount_tickets'),
                 'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
+                'location' => request('location'),
                 'price' => request('price')
             ]);
             
@@ -85,6 +89,8 @@ class EventCRUDController extends Controller
         {
             request()->validate([
                 'name' => 'required',
+                'content' => 'required',
+                'location' => 'required',
                 'event_start_date' => 'required|date',
                 'event_end_date' => 'required|date',
                 'max_amount_tickets' => 'required|integer',
@@ -93,32 +99,50 @@ class EventCRUDController extends Controller
                 'input_img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-            $newimagename = null;
-
-             // delete previous file
-             var_dump($event->image);
-            if ($event->image != null)
-            {
-                $file_path = public_path() . '/images/events/' . $event->image;
-                File::delete($file_path);
-            }
+                    
             // image upload file handler
             if (request()->hasFile('input_img')) {
+
+                // delete previous file
+                if ($event->image != null)
+                {
+                    $file_path = public_path() . '/images/events/' . $event->image;
+                    File::delete($file_path);
+                }
+
                 $image = request()->file('input_img');
                 $newimagename = time().'.'.$image->getClientOriginalExtension();
                 $destinationPath = public_path('/images/events');
                 $image->move($destinationPath, $newimagename);
+
+                $event->update([
+                    'name' => request('name'),
+                    'content' => request('content'),
+                    'image' => $newimagename,
+                    'event_start_date' => request('event_start_date'),
+                    'event_end_date' => request('event_end_date'),
+                    'max_amount_tickets' => request('max_amount_tickets'),
+                    'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
+                    'location' => request('location'),
+                    'price' => request('price')
+                ]);
             }
-          
-            $event->update([
-                'name' => request('name'),
-                'image' => $newimagename,
-                'event_start_date' => request('event_start_date'),
-                'event_end_date' => request('event_end_date'),
-                'max_amount_tickets' => request('max_amount_tickets'),
-                'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
-                'price' => request('price')
-            ]);
+            else
+            {
+                $event->update([
+                    'name' => request('name'),
+                    'content' => request('content'),
+                    'event_start_date' => request('event_start_date'),
+                    'event_end_date' => request('event_end_date'),
+                    'max_amount_tickets' => request('max_amount_tickets'),
+                    'max_amount_tickets_per_person' => request('max_amount_tickets_per_person'),
+                    'location' => request('location'),
+                    'price' => request('price')
+                ]);
+            }
+            // end upload file handler
+
+            
             return redirect('/eventcrud'); 
         }
         return view('event/event');
