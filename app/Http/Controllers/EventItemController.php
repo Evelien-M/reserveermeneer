@@ -19,8 +19,12 @@ class EventItemController extends Controller
         {
             abort(404);
         }
-        
-        return view('event/eventItem', ['event' => $event, 'dayslist' => $this->getDays($event), 'canReserve' => $this->canMakeReservation($event)]);
+        $ticketsLeft = $this->getAmountOfTicketsLeft($event);
+        if ($ticketsLeft < $event->max_amount_tickets_per_person)
+        {
+            $event->max_amount_tickets_per_person = $ticketsLeft;
+        }
+        return view('event/eventItem', ['event' => $event, 'dayslist' => $this->getDays($event), 'canReserve' => $this->canMakeReservation($event), 'ticketsLeft' => $ticketsLeft]);
     }  
 
 
@@ -44,6 +48,7 @@ class EventItemController extends Controller
             'house_number' => 'required',
             'country' => 'required',
             'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'amount' => 'required|integer|between:1,'.$event->max_amount_tickets_per_person.''
         ]);
         // image hanlding
         $newimagename = null;
@@ -55,17 +60,22 @@ class EventItemController extends Controller
             $image->move($destinationPath, $newimagename);
         }
         // end imagehandling
-        Event_ticket::create([
-            'user_id' => Auth::user()->id,
-            'events_id' => request('event_id'),
-            'image' => $newimagename,
-            'days' => implode("|",$checks),
-            'zipcode' => request('zipcode'),
-            'address' => request('address'),
-            'city' => request('city'),
-            'house_number' => request('house_number'),
-            'country' => request('country')
-        ]);
+        $amount = request('amount');
+
+        for($i = 0; $i < $amount; $i++)
+        {
+            Event_ticket::create([
+                'user_id' => Auth::user()->id,
+                'events_id' => request('event_id'),
+                'image' => $newimagename,
+                'days' => implode("|",$checks),
+                'zipcode' => request('zipcode'),
+                'address' => request('address'),
+                'city' => request('city'),
+                'house_number' => request('house_number'),
+                'country' => request('country')
+            ]);
+        }
         return redirect('/reservations'); 
     }
 
@@ -93,11 +103,18 @@ class EventItemController extends Controller
 
     private function canMakeReservation($event)
     {
-        $amount = Event_ticket::all()->where('event_id',$event->id)->where('user_id',Auth::user()->id);
-        if (count($amount) >= $event->max_amount_tickets_per_person)
+        $amount = request('amount');
+        if ($amount > $this->getAmountOfTicketsLeft($event))
         {
             return false;
         }
         return true;
+    }
+
+    private function getAmountOfTicketsLeft($event)
+    {
+        $tickets_sold = Event_ticket::all()->where('events_id', '=', $event->id)->count();
+        $tickets_left = $event->max_amount_tickets - $tickets_sold;
+        return $tickets_left;
     }
 }

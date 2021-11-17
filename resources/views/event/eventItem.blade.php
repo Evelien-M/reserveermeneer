@@ -33,26 +33,33 @@
                     @endforeach
                     <br>
                     <div class="form-group">
-                        <label for="inputAddress">Zipcode</label>
-                        <input type="text" class="form-control" name="zipcode" id="inputAddress" required>
+                        <label for="inputa">Zipcode</label>
+                        <input type="text" class="form-control" name="zipcode" id="inputa" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" name="address" id="inputAddress" required>
+                        <label for="inputb">Address</label>
+                        <input type="text" class="form-control" name="address" id="inputb" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">City</label>
-                        <input type="text" class="form-control" name="city" id="inputAddress" required>
+                        <label for="inputc">City</label>
+                        <input type="text" class="form-control" name="city" id="inputc" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">House number</label>
-                        <input type="text" class="form-control" name="house_number" id="inputAddress" required>
+                        <label for="inputd">House number</label>
+                        <input type="text" class="form-control" name="house_number" id="inputd" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">Country</label>
-                        <input type="text" class="form-control" name="country" id="inputAddress" required>
+                        <label for="inpute">Country</label>
+                        <input type="text" class="form-control" name="country" id="inpute" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Reserveer</button>
+                    <div class="form-group">
+                        <label for="inputAmount">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="inputAmount" value="1" required min="1" max="{{$event->max_amount_tickets_per_person}}">
+                    </div>
+                    <div class="form-inline">
+                        <button type="submit" class="btn btn-primary">Reserveer</button>
+                        <p> {{$ticketsLeft}} Tickets left</p>
+                    </div>
                 </form>
             </div>
         </div>
