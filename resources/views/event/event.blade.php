@@ -7,7 +7,7 @@
     @if ($showEdit)
         <a class="btn btn-secondary" href="/eventcrud">Edit</a>
     @endif
-    <h1 class="display-4 text-center">Evenementen</h1>
+    <h1 class="display-4 text-center">{{__('messages.events')}}</h1>
 </div>
  
 <div class="event-content">
@@ -19,9 +19,9 @@
                         <img class="card-img-top" src="{{asset('images/events/'. $event->image. '')}}" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">{{$event->name}}</h5>
-                        <p class="card-text">Start: {{$event->event_start_date}}</p>
-                        <p class="card-text">End: {{$event->event_end_date}}</p>
-                        <a href="/event/{{$event->id}}" class="btn btn-primary">Bekijk</a>
+                        <p class="card-text">{{__('messages.start')}}: {{$event->event_start_date}}</p>
+                        <p class="card-text">{{__('messages.end')}}: {{$event->event_end_date}}</p>
+                        <a href="/event/{{$event->id}}" class="btn btn-primary">{{__('messages.buttonview')}}</a>
                         </div>
                     </div>
                 </div>

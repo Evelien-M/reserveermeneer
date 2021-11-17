@@ -9,12 +9,12 @@
         <table style="width: 100%">
             <thead>
               <tr>
-                <th>name</th>
-                <th>Location</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Price</th>
-                <th>Days</th>
+                <th>{{__('messages.name')}}</th>
+                <th>{{__('messages.location')}}</th>
+                <th>{{__('messages.start')}}</th>
+                <th>{{__('messages.end')}}</th>
+                <th>{{__('messages.price')}}</th>
+                <th>{{__('messages.days')}}</th>
                 <th>csv</th>
                 <th>json</th>
               </tr>

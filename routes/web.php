@@ -32,3 +32,5 @@ Route::get('/eventcrud/create', [EventCRUDController::class, 'create'])->middlew
 Route::post('/eventcrud', [EventCRUDController::class, 'store'])->middleware('auth');
 
 Route::get('/reservations', [App\Http\Controllers\ReservationsController::class, 'index'])->middleware('auth');
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
