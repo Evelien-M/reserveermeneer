@@ -19,6 +19,7 @@ class EventsTable extends Seeder
                 "name" => "Graspop",
                 "image" => "1636540149.jpg",
                 "content" => "Graspop Metal Meeting is een jaarlijks meerdaags metalfestival in Dessel, in de Belgische provincie Antwerpen. Sinds 2008 trekt het festival elk jaar rond de 135.000 bezoekers. Vanaf 2011 is het een vierdaags festival dat, behoudens enkele uitzonderingen, telkens in het voorlaatste weekend van juni plaatsvindt.",
+                "content2" => "Graspop Metal Meeting is an annual multi-day metal festival in Dessel, in the Belgian province of Antwerp. Since 2008, the festival has attracted around 135,000 visitors every year. From 2011, it is a four-day festival that, with a few exceptions, always takes place in the penultimate weekend of June.",
                 "event_start_date" => "2021-11-09 15:33:53",
                 "event_end_date" => "2021-11-11 15:33:53",
                 "max_amount_tickets" => 400,

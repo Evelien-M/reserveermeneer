@@ -11,6 +11,6 @@ class Event extends Model
 
 
     protected $fillable = [
-        'name','image','content','event_start_date','event_end_date','max_amount_tickets','max_amount_tickets_per_person','location','price'
+        'name','image','content','content2','event_start_date','event_end_date','max_amount_tickets','max_amount_tickets_per_person','location','price'
     ];
 }

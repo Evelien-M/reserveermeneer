@@ -18,5 +18,6 @@ return [
     'ticketsleft' => 'Tickets over',
     'name' => 'Naam',
     'location' => 'Locatie',
-    'price' => 'Prijs'
+    'price' => 'Prijs',
+    'soldout' => 'Tickets zijn uitverkocht!' 
 ];

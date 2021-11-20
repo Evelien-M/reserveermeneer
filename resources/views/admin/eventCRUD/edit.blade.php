@@ -13,8 +13,12 @@
             <input type="text" class="form-control" name="name" id="name1" required value="{{$event->name}}">
         </div>
         <div class="form-group">
-            <label for="imageInput">Content</label>
+            <label for="imageInput">Content Nederlands</label>
             <textarea class="form-control" rows="6" name="content">{{$event->content}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="imageInput">Content English</label>
+            <textarea class="form-control" rows="6" name="content2">{{$event->content2}}</textarea>
         </div>
         <div class="form-group">
             <label for="imageInput">Image</label>

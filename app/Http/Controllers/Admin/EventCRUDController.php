@@ -37,6 +37,7 @@ class EventCRUDController extends Controller
             request()->validate([
                 'name' => 'required',
                 'content' => 'required',
+                'content2' => 'required',
                 'location' => 'required',
                 'event_start_date' => 'required|date',
                 'event_end_date' => 'required|date',
@@ -60,6 +61,7 @@ class EventCRUDController extends Controller
             Event::create([
                 'name' => request('name'),
                 'content' => request('content'),
+                'content2' => request('content2'),
                 'image' => $newimagename,
                 'event_start_date' => request('event_start_date'),
                 'event_end_date' => request('event_end_date'),
@@ -90,6 +92,7 @@ class EventCRUDController extends Controller
             request()->validate([
                 'name' => 'required',
                 'content' => 'required',
+                'content2' => 'required',
                 'location' => 'required',
                 'event_start_date' => 'required|date',
                 'event_end_date' => 'required|date',
@@ -118,6 +121,7 @@ class EventCRUDController extends Controller
                 $event->update([
                     'name' => request('name'),
                     'content' => request('content'),
+                    'content2' => request('content2'),
                     'image' => $newimagename,
                     'event_start_date' => request('event_start_date'),
                     'event_end_date' => request('event_end_date'),
@@ -132,6 +136,7 @@ class EventCRUDController extends Controller
                 $event->update([
                     'name' => request('name'),
                     'content' => request('content'),
+                    'content2' => request('content2'),
                     'event_start_date' => request('event_start_date'),
                     'event_end_date' => request('event_end_date'),
                     'max_amount_tickets' => request('max_amount_tickets'),

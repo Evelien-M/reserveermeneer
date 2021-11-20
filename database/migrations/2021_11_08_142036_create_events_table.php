@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string("name");
             $table->text("content")->nullable();
+            $table->text("content2")->nullable();
             $table->string("image")->nullable();
             $table->timestamp("event_start_date");
             $table->timestamp("event_end_date")->default(\DB::raw('CURRENT_TIMESTAMP'));

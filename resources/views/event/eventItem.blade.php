@@ -8,7 +8,11 @@
             <div class="col-md-8">
                 <img src="{{asset('images/events/'. $event->image. '')}}" style="width: 100%">
                 <h1>{{$event->name}}</h1>
-                <p>{{$event->content}}</p>
+                @if(App::getLocale() == "en")
+                    <p>{{$event->content2}}</p>                 
+                @else
+                    <p>{{$event->content}}</p>
+                @endif
                 <p><i>€ {{$event->price}}</i><p>
             </div>
             <div class="col-md-4">
@@ -57,8 +61,15 @@
                         <input type="number" class="form-control" name="amount" id="inputAmount" value="1" required min="1" max="{{$event->max_amount_tickets_per_person}}">
                     </div>
                     <div class="form-inline">
-                        <button type="submit" class="btn btn-primary">{{__('messages.book')}}</button>
-                        <p> {{$ticketsLeft}} {{__('messages.ticketsleft')}}</p>
+                        @if ($ticketsLeft == 0)
+                        <div class="alert alert-danger" role="alert">
+                            {{__('messages.soldout')}}
+                          </div>
+                        @else
+                            <button type="submit" class="btn btn-primary">{{__('messages.book')}}</button>
+                            <p> {{$ticketsLeft}} {{__('messages.ticketsleft')}}</p>
+                        @endif
+                        
                     </div>
                 </form>
             </div>

@@ -12,8 +12,12 @@
             <input type="text" class="form-control" name="name" id="name1" required>
         </div>
         <div class="form-group">
-            <label for="imageInput">Content</label>
+            <label for="imageInput">Content Nederlands</label>
             <textarea class="form-control" rows="6" name="content"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="imageInput">Content English</label>
+            <textarea class="form-control" rows="6" name="content2"></textarea>
         </div>
         <div class="form-group">
             <label for="imageInput">Image</label>

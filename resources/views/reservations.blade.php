@@ -28,8 +28,8 @@
                         <td>{{$item->event_end_date}}</td>
                         <td>{{$item->price}}</td>
                         <td>{{$item->days}}</td>
-                        <td></td>
-                        <td></td>
+                        <td><a href="reservations/csv/{{$item->id}}" class="btn btn-primary">CSV</a></td>
+                        <td><a href="reservations/json/{{$item->id}}" class="btn btn-primary">JSON</a></td>
                     </tr>
                 @endforeach
               

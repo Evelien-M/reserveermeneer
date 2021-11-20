@@ -18,5 +18,6 @@ return [
     'ticketsleft' => 'Tickets left',
     'name' => 'Name',
     'location' => 'Location',
-    'price' => 'Price' 
+    'price' => 'Price',
+    'soldout' => 'Tickets are soldout!' 
 ];
