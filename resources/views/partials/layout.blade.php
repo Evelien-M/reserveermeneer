@@ -37,11 +37,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home">Home</a>
-                        </li>
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Dashboard</a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="/event">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cinema">Bioscoop</a>
                         </li>
                     </ul>
 
@@ -98,11 +103,9 @@
                 </div>
             </div>
         </nav>
-
         <main class="main">
             @yield('content')
         </main>
     </div>
-    
 </body>
 </html>

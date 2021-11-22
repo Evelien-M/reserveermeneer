@@ -19,7 +19,7 @@ class EventCRUDController extends Controller
             $events = Event::all();
             return view('admin.eventCRUD.index', ['events' => $events]);
         }
-        return view('event/event');
+        return redirect()->back();
     }  
     public function create()
     {
@@ -27,7 +27,7 @@ class EventCRUDController extends Controller
         {
             return view('admin.eventCRUD.create');
         }
-        return view('event/event');
+        return redirect()->back();
     }  
 
     public function store()
@@ -74,7 +74,7 @@ class EventCRUDController extends Controller
 
             return redirect('/eventcrud'); 
         }
-        return view('event/event');
+        return redirect()->back();
     }
 
     public function edit(Event $event)
@@ -83,7 +83,7 @@ class EventCRUDController extends Controller
         {
             return view('admin.eventCRUD.edit', ['event' => $event]);
         }
-        return view('event/event');
+        return redirect()->back();
     }
     public function update(Event $event)
     {
@@ -150,11 +150,11 @@ class EventCRUDController extends Controller
             
             return redirect('/eventcrud'); 
         }
-        return view('event/event');
+        return redirect()->back();;
     }  
     public function delete()
     {
-        return view('event/event');
+        return redirect()->back();
     }
     
     

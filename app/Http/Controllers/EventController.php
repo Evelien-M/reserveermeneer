@@ -11,16 +11,8 @@ class EventController extends Controller
  
     public function index()
     {
-        $showEdit = false;
-        if (Auth::user() != null)
-        {
-            if (Auth::user()->name == "admin")
-            {
-                $showEdit = true;
-            }
-        }
         $events = Event::all();
-        return view('event/event', ['events' => $events, 'showEdit' => $showEdit]);
+        return view('event/event', ['events' => $events]);
     }  
 
 }

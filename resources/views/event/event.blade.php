@@ -4,9 +4,6 @@
     
 @section('content')
 <div class="jumbotron">
-    @if ($showEdit)
-        <a class="btn btn-secondary" href="/eventcrud">Edit</a>
-    @endif
     <h1 class="display-4 text-center">{{__('messages.events')}}</h1>
 </div>
  
