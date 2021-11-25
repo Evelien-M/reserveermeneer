@@ -1,0 +1,30 @@
+.chair {
+    width: 15px;
+    height: 15px;
+}
+
+.arm-left {
+    width: 2px;
+    height: 15px;
+    background: red;
+    position: absolute;
+    margin-top: -24px;
+    margin-left: -1px;
+}
+.arm-right {
+    width: 2px;
+    height: 15px;
+    background: red;
+    position: absolute;
+    margin-top: -24px;
+    margin-left: 14px;
+}
+.back {
+    width: 15px;
+    height: 3px;
+    background: red;
+    position: absolute;
+    margin-top: -8px;
+    margin-left: 0px;
+    border-radius: 3px;
+}
