@@ -42,14 +42,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <div class="card-header">Movie planning CRUD</div>
-                    <div class="card-body">
-                        <a class="btn btn-secondary" href="/eventcrud">Edit</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 @endif

@@ -45,6 +45,8 @@ Route::get('/reservations', [App\Http\Controllers\ReservationsController::class,
 Route::get('/reservations/json/{id}', [App\Http\Controllers\ReservationsController::class, 'getJSON'])->middleware('auth');
 Route::get('/reservations/csv/{id}', [App\Http\Controllers\ReservationsController::class, 'getCSV'])->middleware('auth');
 
-
+Route::get('/planmovie/{id}', [\App\Http\Controllers\Admin\PlanMovieController::class, 'index'])->middleware('auth');
+Route::post('/planmovie/{id}', [\App\Http\Controllers\Admin\PlanMovieController::class, 'showHalls'])->middleware('auth');
+Route::post('/planmovie/{id}/hall', [\App\Http\Controllers\Admin\PlanMovieController::class, 'store'])->middleware('auth');
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

@@ -1,6 +1,6 @@
 @extends('partials.layout')
 
-@section('title','Moevies Management')
+@section('title','Movies Management')
 
 @section('content')
   <div class="container">
@@ -12,6 +12,9 @@
             <th>Name</th>
             <th>duration</th>
             <th>Price</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +26,7 @@
                     <td>{{$movie->price}}</td>
                     <td><a href="/moviecrud/{{$movie->id}}/edit" class="btn btn-primary" role="button" aria-pressed="true">Edit</a></td>
                     <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    <td><a class="btn btn-warning" href="/planmovie/{{$movie->id}}">Plan</a></td>
                 </tr>
             @endforeach
         </tbody>

@@ -19,6 +19,11 @@ class UsersTable extends Seeder
                 "name" => "admin",
                 "email" => "admin@reserveermeneer.nl",
                 "password" => "$2y$10$7xeOo66IjZ15MLXh/P0zy.f8QY8aJ7QXCijCDPKv4/SLeXNd7J9bi"
+            ],
+            [
+                "name" => "Marco Borsato",
+                "email" => "test@test.nl",
+                "password" => "$2y$10$7xeOo66IjZ15MLXh/P0zy.f8QY8aJ7QXCijCDPKv4/SLeXNd7J9bi"
             ]
         ];
 
