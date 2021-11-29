@@ -52,6 +52,40 @@ class CinemaItemController extends Controller
             $a = explode("-",$check); 
             $x = $a[0];
             $y = $a[1];
+
+            $l = Movies_reservation::all()->where('x', '=', $x-1)->where('y', '=', $y)->first();
+            $r = Movies_reservation::all()->where('x', '=', $x+1)->where('y', '=', $y)->first();
+           if($l == null)
+            {
+                Movies_reservation::create([
+                    'halls_has_movies_id' => $halls_has_movies_id->id,
+                    'user_id' => null,
+                    'x' => $x - 1,
+                    'y' => $y,
+                    'locked' => true,
+                    'zipcode' => request('zipcode'),
+                    'address' => request('address'),
+                    'city' => request('city'),
+                    'house_number' => request('house_number'),
+                    'country' => request('country')
+                ]);
+            }
+            if($r == null)
+            {
+                Movies_reservation::create([
+                    'halls_has_movies_id' => $halls_has_movies_id->id,
+                    'user_id' => null,
+                    'x' => $x + 1,
+                    'y' => $y,
+                    'locked' => true,
+                    'zipcode' => request('zipcode'),
+                    'address' => request('address'),
+                    'city' => request('city'),
+                    'house_number' => request('house_number'),
+                    'country' => request('country')
+                ]);
+            }
+
             Movies_reservation::create([
                 'halls_has_movies_id' => $halls_has_movies_id->id,
                 'user_id' => Auth::User()->id,
@@ -64,31 +98,8 @@ class CinemaItemController extends Controller
                 'house_number' => request('house_number'),
                 'country' => request('country')
             ]);
-            Movies_reservation::create([
-                'halls_has_movies_id' => $halls_has_movies_id->id,
-                'user_id' => null,
-                'x' => $x + 1,
-                'y' => $y,
-                'locked' => true,
-                'zipcode' => request('zipcode'),
-                'address' => request('address'),
-                'city' => request('city'),
-                'house_number' => request('house_number'),
-                'country' => request('country')
-            ]);
-            Movies_reservation::create([
-                'halls_has_movies_id' => $halls_has_movies_id->id,
-                'user_id' => null,
-                'x' => $x - 1,
-                'y' => $y,
-                'locked' => true,
-                'zipcode' => request('zipcode'),
-                'address' => request('address'),
-                'city' => request('city'),
-                'house_number' => request('house_number'),
-                'country' => request('country')
-            ]);
         }
+        return redirect('/reservations');
     }
 
     private function CreateArray($movie, $reservation)
