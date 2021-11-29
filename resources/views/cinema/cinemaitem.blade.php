@@ -32,6 +32,10 @@
                                         <div class="arm-left"></div>
                                         <div class="arm-right"></div>
                                         <div class="back"></div>
+                                        @elseif ($reservation[$x][$y] == 2)
+                                        <input type="checkbox" class="chair" name="pos[]" disabled value="{{$x}}-{{$y}}">
+                                        <div class="cross"></div>
+                                        <div class="cross2"></div>
                                         @else
                                         <input type="checkbox" class="chair" name="pos[]" disabled value="{{$x}}-{{$y}}">
                                         @endif

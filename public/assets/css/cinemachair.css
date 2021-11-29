@@ -28,3 +28,24 @@
     margin-left: 0px;
     border-radius: 3px;
 }
+
+.cross {
+    width: 15px;
+    height: 3px;
+    background: red;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 0px;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+.cross2 {
+    width: 15px;
+    height: 3px;
+    background: red;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 0px;
+    border-radius: 3px;
+    transform: rotate(-45deg);
+}
