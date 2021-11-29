@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMoviesReservation extends Migration
+class CreateMoviesReservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,21 @@ class CreateMoviesReservation extends Migration
      */
     public function up()
     {
-        Schema::create('movies_reservation', function (Blueprint $table) {
+        Schema::create('movies_reservations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('halls_has_movies_id')->unsigned();
             $table->foreign('halls_has_movies_id')->references('id')->on('halls_has_movies')->onDelete('cascade');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer("x");
             $table->integer("y");
             $table->boolean("locked");
+            $table->string('zipcode');
+            $table->string('address');
+            $table->string('city');
+            $table->string('house_number');
+            $table->string('country');
             $table->timestamps();
-            
-
         });
     }
 
@@ -35,6 +38,6 @@ class CreateMoviesReservation extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies_reservation');
+        Schema::dropIfExists('movies_reservations');
     }
 }

@@ -12,9 +12,9 @@ class CinemaController extends Controller
 {
     public function index()
     {
+        date_default_timezone_set('Europe/Amsterdam');
         $now = new DateTime();
         $now->format('Y-m-d H:i:s');
-
         $movies = DB::table('halls_has_movies')
         ->select('halls_has_movies.id as id' ,'movies.name as movie_name', 'halls.name as hall_name' , 'movies.image as image', 'movies.price as price', 'halls_has_movies.movie_start_date as movie_start_date','halls_has_movies.movie_end_date as movie_end_date')
         ->Join('halls', 'halls.id', '=', 'halls_has_movies.hall_id')

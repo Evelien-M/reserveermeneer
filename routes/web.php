@@ -28,6 +28,7 @@ Route::post('/eventItem', [App\Http\Controllers\EventItemController::class, 'sto
 
 Route::get('/cinema', [App\Http\Controllers\CinemaController::class, 'index']);
 Route::get('/cinema/{item}', [App\Http\Controllers\CinemaItemController::class, 'index'])->middleware('auth');
+Route::post('/cinemaItem', [App\Http\Controllers\CinemaItemController::class, 'store'])->middleware('auth');
 
 Route::get('/eventcrud', [EventCRUDController::class, 'index'])->middleware('auth');
 Route::get('/eventcrud/{event}/edit', [EventCRUDController::class, 'edit'])->middleware('auth');
