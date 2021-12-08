@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             UsersTable::class,
             EventsTable::class,
             HallsTable::class,
-            MoviesTable::class
+            MoviesTable::class,
+            KitchenTypes::class
         ]);
     }
 }

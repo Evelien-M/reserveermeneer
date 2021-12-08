@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventCRUDController;
 use App\Http\Controllers\Admin\MovieCRUDController;
+use App\Http\Controllers\Admin\RestaurantCRUDController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,12 @@ Route::get('/moviecrud/{movie}/edit', [MovieCRUDController::class, 'edit'])->mid
 Route::put('/moviecrud/{movie}', [MovieCRUDController::class, 'update'])->middleware('auth');
 Route::get('/moviecrud/create', [MovieCRUDController::class, 'create'])->middleware('auth');
 Route::post('/moviecrud', [MovieCRUDController::class, 'store'])->middleware('auth');
+
+Route::get('/restaurantcrud', [RestaurantCRUDController::class, 'index'])->middleware('auth');
+Route::get('/restaurantcrud/{restaurant}/edit', [RestaurantCRUDController::class, 'edit'])->middleware('auth');
+Route::put('/restaurantcrud/{restaurant}', [MovieCRUDController::class, 'update'])->middleware('auth');
+Route::get('/restaurantcrud/create', [RestaurantCRUDController::class, 'create'])->middleware('auth');
+Route::post('/restaurantcrud', [RestaurantCRUDController::class, 'store'])->middleware('auth');
 
 Route::get('/reservations', [App\Http\Controllers\ReservationsController::class, 'index'])->middleware('auth');
 Route::get('/reservations/json/{id}', [App\Http\Controllers\ReservationsController::class, 'getJSON'])->middleware('auth');
