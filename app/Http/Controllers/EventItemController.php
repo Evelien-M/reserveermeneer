@@ -91,8 +91,7 @@ class EventItemController extends Controller
         {
             for($i = 0; $i < $daysbetween - 2; $i++)
             {
-                $j = $i + 1;
-                $bdate = $date1->add(new DateInterval('P'.$j.'D')); // P1D means a period of 1 day
+                $bdate = $date1->add(new DateInterval('P1D')); // P1D means a period of 1 day
                 array_push($dayslist,$bdate->format('d-m-Y'));
             }
         }

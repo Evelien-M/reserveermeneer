@@ -37,5 +37,37 @@
             </tbody>
             </table>
     </div>
+
+    <div class="section-event">
+        <h2>Bioscoop</h2>
+        <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Zaal</th>
+                <th>Rij</th>
+                <th>Stoel</th>
+                <th>Prijs</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($movie as $item)
+                    <tr>
+                        <td>{{$item->movie_name}}</td>
+                        <td>{{$item->start_date}}</td>
+                        <td>{{$item->end_date}}</td>
+                        <td>{{$item->hall_name}}</td>
+                        <td>{{$item->y}}</td>
+                        <td>{{$item->x}}</td>
+                        <td>{{$item->movie_price}}</td>
+                    </tr>
+                @endforeach
+              
+                
+            </tbody>
+            </table>
+    </div>
 </div>
 @endsection
