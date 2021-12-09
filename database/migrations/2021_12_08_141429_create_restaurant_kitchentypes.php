@@ -15,6 +15,7 @@ class CreateRestaurantKitchentypes extends Migration
     {
         Schema::create('restaurant_kitchentypes', function (Blueprint $table) {
             $table->string("type", 30)->primary();
+            $table->string("type2", 30);
             $table->timestamps();
         });
     }

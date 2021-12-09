@@ -17,15 +17,19 @@ class KitchenTypes extends Seeder
         $types = [
             [
                 "type" => "Orientaals",
+                "type2" => "Oriental",
             ],
             [
                 "type" => "Sushi",
+                "type2" => "Sushi",
             ],
             [
                 "type" => "Arabisch",
+                "type2" => "Arabic",
             ],
             [
                 "type" => "Italiaans",
+                "type2" => "Italian",
             ]
         ];
 

@@ -23,7 +23,8 @@
             <input name="amount_seats" type="number" class="form-control" id="seatamount" required>
         </div>
         <div class="form-group">
-            <select class="form-control" name="kitchen_type">
+            <label for="kitchentype">Keuken type</label>
+            <select class="form-control" id="kitchentype" name="kitchen_type">
                 @foreach ($options as $item)
                     <option value="{{$item->type}}">{{$item->type}}</option>
                 @endforeach

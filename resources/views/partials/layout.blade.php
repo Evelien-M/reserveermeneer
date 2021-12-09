@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/cinema">Bioscoop</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/restaurant">Restaurant</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

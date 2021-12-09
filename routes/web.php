@@ -23,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index']);
 Route::get('/event/{event}', [App\Http\Controllers\EventItemController::class, 'index'])->middleware('auth');
 Route::post('/eventItem', [App\Http\Controllers\EventItemController::class, 'store'])->middleware('auth');
@@ -30,6 +31,9 @@ Route::post('/eventItem', [App\Http\Controllers\EventItemController::class, 'sto
 Route::get('/cinema', [App\Http\Controllers\CinemaController::class, 'index']);
 Route::get('/cinema/{item}', [App\Http\Controllers\CinemaItemController::class, 'index'])->middleware('auth');
 Route::post('/cinemaItem', [App\Http\Controllers\CinemaItemController::class, 'store'])->middleware('auth');
+
+Route::get('/restaurant', [App\Http\Controllers\RestaurantController::class, 'index']);
+Route::get('/restaurant/{item}', [App\Http\Controllers\RestaurantItemController::class, 'index']);
 
 Route::get('/eventcrud', [EventCRUDController::class, 'index'])->middleware('auth');
 Route::get('/eventcrud/{event}/edit', [EventCRUDController::class, 'edit'])->middleware('auth');
@@ -45,7 +49,7 @@ Route::post('/moviecrud', [MovieCRUDController::class, 'store'])->middleware('au
 
 Route::get('/restaurantcrud', [RestaurantCRUDController::class, 'index'])->middleware('auth');
 Route::get('/restaurantcrud/{restaurant}/edit', [RestaurantCRUDController::class, 'edit'])->middleware('auth');
-Route::put('/restaurantcrud/{restaurant}', [MovieCRUDController::class, 'update'])->middleware('auth');
+Route::put('/restaurantcrud/{restaurant}', [RestaurantCRUDController::class, 'update'])->middleware('auth');
 Route::get('/restaurantcrud/create', [RestaurantCRUDController::class, 'create'])->middleware('auth');
 Route::post('/restaurantcrud', [RestaurantCRUDController::class, 'store'])->middleware('auth');
 
