@@ -23,10 +23,20 @@ class RestaurantItemController extends Controller
     }
 
 
-    private function getAvailableTime($id)
+    private function getAvailableTime($restaurant)
     {
         $time = array();
-        array_push($time,"aaa");
-        return $time;
+        $open = strtotime($restaurant->open_time);
+        $closed = strtotime($restaurant->close_time);
+        $timeslot = $this->time_range($open, $closed);
+        array_pop($timeslot);
+        return $timeslot;
+    }
+
+    private function time_range( $start, $end, $step = 1800 ) {
+        $return = array();
+        for( $time = $start; $time <= $end; $time += $step )
+            $return[] = date( 'H:i', $time );
+        return $return;
     }
 }

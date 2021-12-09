@@ -24,10 +24,11 @@
                 <div class="form-group">
                     <p>Tijd:</p>
                     @foreach ($availableTime as $time)
-                        <input class="form-check-input" type="radio" name="time" id="exampleRadios1" value="{{$time}}" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input style="margin-left: 0px; margin-top: 7px" class="form-check-input" type="radio" name="time" id="exampleRadios1-{{$time}}" value="{{$time}}" checked>
+                        <label style="margin-left: 15px" class="form-check-label" for="exampleRadios1-{{$time}}">
                         {{$time}}
                         </label>
+                        <br>
                     @endforeach
                 </div>
                 
