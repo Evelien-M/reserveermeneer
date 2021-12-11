@@ -12,7 +12,7 @@ class RestaurantItemController extends Controller
     public function index($restaurant)
     {
         $restaurant =  DB::table('restaurants')
-        ->select('restaurants.id as id', 'restaurants.name as name','restaurants.open_time as open_time','restaurants.close_time as close_time', 'restaurants.amount_seats as amount_seats', 'restaurant_kitchentypes.type as kitchen_type', 'restaurant_kitchentypes.type2 as kitchen_type2')
+        ->select('restaurants.id as id', 'restaurants.name as name','restaurants.open_time as open_time','restaurants.close_time as close_time', 'restaurants.amount_seats as amount_seats', 'restaurants.location as location', 'restaurant_kitchentypes.type as kitchen_type', 'restaurant_kitchentypes.type2 as kitchen_type2')
         ->Join('restaurant_kitchentypes', 'restaurant_kitchentypes.type', '=', 'restaurants.kitchen_type')
         ->where('id', '=', $restaurant)
         ->first();
@@ -24,7 +24,7 @@ class RestaurantItemController extends Controller
         $availableTime = null;
         if ($date != null)
         {
-            $availableTime = $this->getAvailableTime($restaurant);
+            $availableTime = $this->getAvailableTime($restaurant,$date);
         }
     
         return view('restaurant.restaurantitem', ['restaurant' => $restaurant, 'availableTime' => $availableTime, 'day' => $date]);
@@ -59,14 +59,27 @@ class RestaurantItemController extends Controller
         return redirect('/reservations');
     }
 
-    private function getAvailableTime($restaurant)
+    private function getAvailableTime($restaurant,$date)
     {
         $time = array();
         $open = strtotime($restaurant->open_time);
         $closed = strtotime($restaurant->close_time);
         $timeslot = $this->time_range($open, $closed);
         array_pop($timeslot);
-        return $timeslot;
+
+        foreach ($timeslot as $item) {
+            $result = DB::table('Restaurant_reservations')
+            ->select('day','time')
+            ->where('restaurant_id', '=', $restaurant->id)
+            ->where('day', '=', $date)
+            ->where('time', '=', $item)
+            ->get();
+            if (count($result) < 10)
+            {
+                array_push($time,$item);
+            }
+        }
+        return $time;
     }
 
     private function time_range( $start, $end, $step = 1800 ) {

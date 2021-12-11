@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-md-8">
             <h1>{{$restaurant->name}}</h1>
+            <h2>{{$restaurant->location}}</h2>
             <p>Open: {{$restaurant->open_time}}</p>
             <p>closed: {{$restaurant->close_time}}</p>
             @if(App::getLocale() == "en")
@@ -65,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAmount">{{__('messages.amount')}}</label>
-                        <input type="number" class="form-control" name="amount" id="inputAmount" value="1" required min="1" max="{{$restaurant->amount_seats}}">
+                        <input type="number" class="form-control" name="amount" id="inputAmount" value="1" required min="1" max="10">
                     </div>
                     <div class="form-inline">
                         <button type="submit" class="btn btn-primary">{{__('messages.book')}}</button>

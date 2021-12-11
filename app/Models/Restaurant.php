@@ -10,6 +10,6 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name','open_time','close_time','amount_seats','kitchen_type'
+        'name','open_time','close_time','amount_seats','location','kitchen_type'
     ];
 }

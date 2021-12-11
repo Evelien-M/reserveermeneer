@@ -23,6 +23,10 @@
             <input name="amount_seats" type="number" class="form-control" id="seatamount" required>
         </div>
         <div class="form-group">
+            <label for="locations">Locatie</label>
+            <input name="location" type="text" class="form-control" id="locations" required>
+        </div>
+        <div class="form-group">
             <label for="kitchentype">Keuken type</label>
             <select class="form-control" id="kitchentype" name="kitchen_type">
                 @foreach ($options as $item)

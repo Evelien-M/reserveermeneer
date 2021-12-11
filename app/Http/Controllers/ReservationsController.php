@@ -14,7 +14,8 @@ class ReservationsController extends Controller
     {
         $event_reservation = $this->getEventTickets();
         $movie_reservation = $this->getCinemaTickets();
-        return view('reservations', ['event' => $event_reservation, 'movie' => $movie_reservation]);
+        $restaurant_reservation = $this->getRestaurantReservation();
+        return view('reservations', ['event' => $event_reservation, 'movie' => $movie_reservation, 'restaurant' => $restaurant_reservation]);
     }
 
     public function getJSON($id)
@@ -43,6 +44,15 @@ class ReservationsController extends Controller
             ->join('halls', 'halls_has_movies.hall_id', '=', 'halls.id')
             ->join('movies', 'halls_has_movies.movie_id', '=', 'movies.id')
             ->where('movies_reservations.user_id', '=', Auth::user()->id)
+            ->get();
+    }
+
+    private function getRestaurantReservation()
+    {
+        return DB::table('restaurant_reservations')
+        ->select('restaurants.name as name','restaurants.location as location','restaurant_reservations.day as day','restaurant_reservations.time as time')
+            ->join('restaurants', 'restaurants.id', '=', 'restaurant_reservations.restaurant_id')
+            ->where('restaurant_reservations.user_id', '=', Auth::user()->id)
             ->get();
     }
 

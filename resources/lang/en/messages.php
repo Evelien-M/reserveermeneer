@@ -19,5 +19,8 @@ return [
     'name' => 'Name',
     'location' => 'Location',
     'price' => 'Price',
-    'soldout' => 'Tickets are soldout!' 
+    'soldout' => 'Tickets are soldout!',
+    'kitchentype' => 'Kitchen type',
+    'sort' => 'Sort',
+    'all' => 'All'
 ];

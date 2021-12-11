@@ -20,6 +20,7 @@ class RestaurantTable extends Seeder
                 "open_time" => "10:00",
                 "close_time" => "16:00",
                 "amount_seats" => "20",
+                "location" => "Utrecht",
                 "kitchen_type" => "Orientaals"
             ],
             [
@@ -27,6 +28,7 @@ class RestaurantTable extends Seeder
                 "open_time" => "17:00",
                 "close_time" => "22:00",
                 "amount_seats" => "28",
+                "location" => "Utrecht",
                 "kitchen_type" => "Arabisch"
             ],
             [
@@ -34,6 +36,7 @@ class RestaurantTable extends Seeder
                 "open_time" => "10:00",
                 "close_time" => "17:00",
                 "amount_seats" => "34",
+                "location" => "Utrecht",
                 "kitchen_type" => "Italiaans"
             ]
         ];

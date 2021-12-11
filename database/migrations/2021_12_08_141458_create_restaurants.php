@@ -19,6 +19,7 @@ class CreateRestaurants extends Migration
             $table->time("open_time")->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->time("close_time")->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->integer("amount_seats");
+            $table->string("location");
             $table->string('kitchen_type');
             $table->foreign('kitchen_type')->references('type')->on('restaurant_kitchentypes')->onDelete('cascade');
             $table->timestamps();

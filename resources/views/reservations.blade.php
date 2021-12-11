@@ -37,7 +37,7 @@
             </tbody>
             </table>
     </div>
-
+    <hr>
     <div class="section-event">
         <h2>Bioscoop</h2>
         <table style="width: 100%">
@@ -63,11 +63,33 @@
                         <td>{{$item->x}}</td>
                         <td>{{$item->movie_price}}</td>
                     </tr>
-                @endforeach
-              
-                
+                @endforeach                
             </tbody>
-            </table>
+        </table>
+    </div>
+    <hr>
+    <div class="section-event">
+        <h2>Restaurant</h2>
+        <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Locatie</th>
+                <th>Dag</th>
+                <th>Tijd</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($restaurant as $item)
+                    <tr>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->location}}</td>
+                        <td>{{$item->day}}</td>
+                        <td>{{$item->time}}</td>
+                    </tr>
+                @endforeach                
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection

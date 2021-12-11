@@ -26,6 +26,18 @@ class EventsTable extends Seeder
                 "max_amount_tickets_per_person" => 8,
                 "location" => "Dessel",
                 "price" => 12.99
+            ],
+            [
+                "name" => "Lowlands",
+                "image" => "1639216467.jpg",
+                "content" => "A Campingflight to Lowlands Paradise of kortweg Lowlands is een driedaags muziekfestival dat sinds 1993 jaarlijks in Biddinghuizen (Flevoland) op het evenemententerrein van Walibi Holland gehouden wordt. Mojo Concerts begon Lowlands als tegenhanger van festivals als Pinkpop en Dynamo Open Air en probeerde hier wat alternatievere muziek uit. Het festival heeft grote variatie in het aanbod van amusement: er is niet alleen muziek, maar ook literatuur, film, cabaret, ballet, theater en strip.",
+                "content2" => "A Campingflight to Lowlands Paradise or Lowlands for short is a three-day music festival that has been held annually in Biddinghuizen (Flevoland) on the event site of Walibi Holland since 1993. Mojo Concerts started Lowlands as a counterpart to festivals such as Pinkpop and Dynamo Open Air and tried out some more alternative music here. The festival offers a wide variety of entertainment: there is not only music, but also literature, film, cabaret, ballet, theater and comics.",
+                "event_start_date" => "2022-02-20 15:00:00",
+                "event_end_date" => "2022-02-24 20:00:00",
+                "max_amount_tickets" => 800,
+                "max_amount_tickets_per_person" => 8,
+                "location" => "Biddinghuizen",
+                "price" => 16.99
             ]
         ];
 

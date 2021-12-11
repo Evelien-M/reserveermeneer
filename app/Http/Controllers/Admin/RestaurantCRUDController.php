@@ -17,7 +17,7 @@ class RestaurantCRUDController extends Controller
         if (Auth::user()->name == "admin")
         {
             $restaurants =  DB::table('restaurants')
-            ->select('restaurants.id as id', 'restaurants.name as name','restaurants.open_time as open_time','restaurants.close_time as close_time', 'restaurants.amount_seats as amount_seats', 'restaurant_kitchentypes.type as kitchen_type', 'restaurant_kitchentypes.type2 as kitchen_type2')
+            ->select('restaurants.id as id', 'restaurants.name as name','restaurants.open_time as open_time','restaurants.close_time as close_time', 'restaurants.amount_seats as amount_seats', 'restaurants.location as location', 'restaurant_kitchentypes.type as kitchen_type', 'restaurant_kitchentypes.type2 as kitchen_type2')
             ->Join('restaurant_kitchentypes', 'restaurant_kitchentypes.type', '=', 'restaurants.kitchen_type')
             ->get();
 
@@ -45,6 +45,7 @@ class RestaurantCRUDController extends Controller
                 'open_time' => 'required',
                 'close_time' => 'required',
                 'amount_seats' => 'required',
+                'location' => 'required',
                 'kitchen_type' => 'required',
             ]);
             
@@ -53,6 +54,7 @@ class RestaurantCRUDController extends Controller
                 'open_time' => request('open_time'),
                 'close_time' => request('close_time'),
                 'amount_seats' => request('amount_seats'),
+                'location' => request('location'),
                 'kitchen_type' => request('kitchen_type')
             ]);
              
@@ -81,6 +83,7 @@ class RestaurantCRUDController extends Controller
                 'open_time' => 'required',
                 'close_time' => 'required',
                 'amount_seats' => 'required',
+                'location' => 'required',
                 'kitchen_type' => 'required',
             ]);
          
@@ -89,6 +92,7 @@ class RestaurantCRUDController extends Controller
                 'open_time' => request('open_time'),
                 'close_time' => request('close_time'),
                 'amount_seats' => request('amount_seats'),
+                'location' => request('location'),
                 'kitchen_type' => request('kitchen_type')
             ]);
             
