@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Restaurant_reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantItemController extends Controller
 {
@@ -18,10 +20,44 @@ class RestaurantItemController extends Controller
         {
             abort(404);
         }
-        $availableTime = $this->getAvailableTime($restaurant);
-        return view('restaurant.restaurantitem', ['restaurant' => $restaurant, 'availableTime' => $availableTime]);
+        $date = request('day');
+        $availableTime = null;
+        if ($date != null)
+        {
+            $availableTime = $this->getAvailableTime($restaurant);
+        }
+    
+        return view('restaurant.restaurantitem', ['restaurant' => $restaurant, 'availableTime' => $availableTime, 'day' => $date]);
     }
 
+    public function store()
+    {
+        request()->validate([
+            'zipcode' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'house_number' => 'required',
+            'country' => 'required'
+        ]);
+        $amount = request('amount');
+
+        for($i = 0; $i < $amount; $i++)
+        {
+            Restaurant_reservation::create([
+                'restaurant_id' => request('restaurant_id'),
+                'user_id' => Auth::User()->id,
+                'day' => request('day'),
+                'time' => request('time'),
+                'zipcode' => request('zipcode'),
+                'address' => request('address'),
+                'city' => request('city'),
+                'house_number' => request('house_number'),
+                'country' => request('country')
+            ]);
+        }
+
+        return redirect('/reservations');
+    }
 
     private function getAvailableTime($restaurant)
     {

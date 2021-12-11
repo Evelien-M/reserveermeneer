@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\Models\Restaurant_kitchentype;
+use App\Models\Restaurant_reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -95,4 +96,20 @@ class RestaurantCRUDController extends Controller
         }
         return redirect()->back();;
     }  
+
+    public function dashboard(Restaurant $restaurant)
+    {
+        if (Auth::user()->name == "admin")
+        {
+            $result = DB::table('Restaurant_reservations')
+            ->select('day','time',DB::raw('count(time) as total'))
+            ->where('restaurant_id', '=', $restaurant->id)
+            ->groupBy('time')
+            ->orderByDesc('total')
+            ->get();
+
+            return view('admin.restaurantCRUD.dashboard', ['restaurant' => $restaurant, 'results' => $result]);
+        }
+        return redirect()->back();
+    }
 }

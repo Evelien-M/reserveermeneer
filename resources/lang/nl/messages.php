@@ -19,5 +19,5 @@ return [
     'name' => 'Naam',
     'location' => 'Locatie',
     'price' => 'Prijs',
-    'soldout' => 'Tickets zijn uitverkocht!' 
+    'soldout' => 'Tickets zijn uitverkocht!'
 ];

@@ -17,7 +17,7 @@ class EventController extends Controller
         $now = new DateTime();
         $now->format('Y-m-d H:i:s');
         $events = DB::table('events')
-        ->select('id','name','image','event_start_date', 'event_end_date','price')
+        ->select('id','name','image','event_start_date', 'event_end_date','price','location')
         ->where('event_start_date', '>', $now)
         ->get();
         return view('event/event', ['events' => $events]);

@@ -18,6 +18,7 @@
                         <h5 class="card-title">{{$event->name}}</h5>
                         <p class="card-text">{{__('messages.start')}}: {{$event->event_start_date}}</p>
                         <p class="card-text">{{__('messages.end')}}: {{$event->event_end_date}}</p>
+                        <p class="card-text">{{__('messages.location')}}: {{$event->location}}</p>
                         <a href="/event/{{$event->id}}" class="btn btn-primary">{{__('messages.buttonview')}}</a>
                         </div>
                     </div>

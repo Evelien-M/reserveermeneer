@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +19,8 @@ class DatabaseSeeder extends Seeder
             EventsTable::class,
             HallsTable::class,
             MoviesTable::class,
-            KitchenTypes::class
+            KitchenTypes::class,
+            RestaurantTable::class
         ]);
     }
 }

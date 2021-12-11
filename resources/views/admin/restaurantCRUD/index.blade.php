@@ -13,6 +13,9 @@
             <th>Close Time</th>
             <th>Aantal zitplaatsen</th>
             <th>Kitchen type</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +28,7 @@
                     <td>{{$restaurant->kitchen_type}}</td>
                     <td><a href="/restaurantcrud/{{$restaurant->id}}/edit" class="btn btn-primary" role="button" aria-pressed="true">Edit</a></td>
                     <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    <td><a href="/restaurantcrud/{{$restaurant->id}}/dashboard" role="button" class="btn btn-warning">Drukte</a></td>
                 </tr>
             @endforeach
         </tbody>

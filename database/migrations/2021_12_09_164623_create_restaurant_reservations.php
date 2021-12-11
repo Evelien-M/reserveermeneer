@@ -19,6 +19,7 @@ class CreateRestaurantReservations extends Migration
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->date("day")->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->time("time")->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->string('zipcode');
             $table->string('address');
