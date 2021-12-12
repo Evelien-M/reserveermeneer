@@ -59,6 +59,7 @@ class RestaurantController extends Controller
                 ->get();
             }
         }
-        return view('restaurant/restaurant', ['restaurants' => $restaurants, 'options' => $options, 'filter_location' => $filter_location, 'filter_kitchentype' => $filter_kitchentype]);
+        $sort_order = $sort[0] . "-" . $sort[1];
+        return view('restaurant/restaurant', ['restaurants' => $restaurants, 'options' => $options, 'filter_location' => $filter_location, 'filter_kitchentype' => $filter_kitchentype, 'sort_order' => $sort_order]);
     }
 }

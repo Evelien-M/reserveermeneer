@@ -152,9 +152,13 @@ class EventCRUDController extends Controller
         }
         return redirect()->back();;
     }  
-    public function delete()
+    public function delete(Event $event)
     {
-        return redirect()->back();
+        if (Auth::user()->name == "admin")
+        {
+            Event::where('id', $event->id)->delete();
+        } 
+        return redirect()->back();;
     }
     
     

@@ -131,4 +131,13 @@ class MovieCRUDController extends Controller
         }
         return redirect()->back();;
     }  
+
+    public function delete(Movie $movie)
+    {
+        if (Auth::user()->name == "admin")
+        {
+            Movie::where('id', $movie->id)->delete();
+        } 
+        return redirect()->back();;
+    }
 }

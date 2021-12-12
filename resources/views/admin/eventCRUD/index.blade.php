@@ -4,7 +4,7 @@
     
 @section('content')
   <div class="container">
-    <a href="/eventcrud/create">Add</a>
+    <a href="/eventcrud/create" class="btn btn-primary" style="margin-top: 15px">Add</a>
     <table style="width: 100%">
         <thead>
           <tr>
@@ -30,7 +30,7 @@
                     <td>{{$event->max_amount_tickets_per_person}}</td>
                     <td>{{$event->price}}</td>
                     <td><a href="/eventcrud/{{$event->id}}/edit" class="btn btn-primary" role="button" aria-pressed="true">Edit</a></td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    <td><a href="/eventcrud/{{$event->id}}/delete" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
                 </tr>
             @endforeach
         </tbody>

@@ -22,5 +22,14 @@ return [
     'soldout' => 'Tickets are soldout!',
     'kitchentype' => 'Kitchen type',
     'sort' => 'Sort',
-    'all' => 'All'
+    'all' => 'All',
+    'date' => 'Date',
+    'time' => 'Time',
+    'choose' => 'Choose',
+    'namedesc' => 'Name descending',
+    'nameasc' => 'Name ascending',
+    'locationdesc' => 'Location descending',
+    'locationasc' => 'Location ascending',
+    'datedesc' => 'Date descending',
+    'dateasc' => 'Date ascending'
 ];

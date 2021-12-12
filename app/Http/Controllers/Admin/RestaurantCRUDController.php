@@ -99,7 +99,16 @@ class RestaurantCRUDController extends Controller
             return redirect('/restaurantcrud'); 
         }
         return redirect()->back();;
-    }  
+    }
+    
+    public function delete(Restaurant $restaurant)
+    {
+        if (Auth::user()->name == "admin")
+        {
+            Restaurant::where('id', $restaurant->id)->delete();
+        } 
+        return redirect()->back();;
+    }
 
     public function dashboard(Restaurant $restaurant)
     {

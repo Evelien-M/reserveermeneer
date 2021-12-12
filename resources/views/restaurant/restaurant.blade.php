@@ -35,10 +35,11 @@
             <div class="col-md-6">
                 <h3>{{__('messages.sort')}}:</h3>
                 <select class="form-control" name="order">
-                    <option value="name-DESC">Naam aflopend</option>
-                    <option value="name-ASC">Naam oplopend</option>
-                    <option value="location-DESC">Locatie aflopend</option>
-                    <option value="location-ASC">Locatie oplopend</option>
+
+                    <option value="name-DESC" {{$sort_order == "name-DESC" ? 'selected' : ''}}>{{__('messages.namedesc')}}</option>
+                    <option value="name-ASC" {{$sort_order == "name-ASC" ? 'selected' : ''}}>{{__('messages.nameasc')}}</option>
+                    <option value="location-DESC" {{$sort_order == "location-DESC" ? 'selected' : ''}}>{{__('messages.locationasc')}}</option>
+                    <option value="location-ASC" {{$sort_order == "location-ASC" ? 'selected' : ''}}>{{__('messages.locationdesc')}}</option>
                 </select>
                 <input type="submit" style="margin-top: 15px" class="btn btn-primary" value="{{__('messages.sort')}}"/>
             </div>

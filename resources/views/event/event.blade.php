@@ -27,14 +27,14 @@
                 <input type="submit" class="btn btn-primary" value="Filter"/>
             </div>
             <div class="col-md-6">
-                <h3>Sorteer:</h3>
+                <h3>{{__('messages.sort')}}:</h3>
                 <select class="form-control" name="order">
-                    <option value="name-DESC">Naam aflopend</option>
-                    <option value="name-ASC">Naam oplopend</option>
-                    <option value="event_start_date-DESC">Datum aflopend</option>
-                    <option value="event_start_date-ASC">Datum oplopend</option>
-                    <option value="name-DESC">Locatie aflopend</option>
-                    <option value="name-ASC">Locatie oplopend</option>
+                    <option value="name-DESC" {{$sort_order == "name-DESC" ? 'selected' : ''}}>{{__('messages.namedesc')}}</option>
+                    <option value="name-ASC" {{$sort_order == "name-ASC" ? 'selected' : ''}}>{{__('messages.nameasc')}}</option>
+                    <option value="event_start_date-DESC" {{$sort_order == "event_start_date-DESC" ? 'selected' : ''}}>{{__('messages.datedesc')}}</option>
+                    <option value="event_start_date-ASC" {{$sort_order == "event_start_date-ASC" ? 'selected' : ''}}>{{__('messages.dateasc')}}</option>
+                    <option value="location-DESC" {{$sort_order == "location-DESC" ? 'selected' : ''}}>{{__('messages.locationdesc')}}</option>
+                    <option value="location-ASC" {{$sort_order == "location-ASC" ? 'selected' : ''}}>{{__('messages.locationasc')}}</option>
                 </select>
                 <input type="submit" style="margin-top: 15px" class="btn btn-primary" value="Sorteer"/>
             </div>

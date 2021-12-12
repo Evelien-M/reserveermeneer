@@ -42,11 +42,11 @@ class EventItemController extends Controller
             return redirect()->back();
         }
         request()->validate([
-            'zipcode' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'house_number' => 'required',
-            'country' => 'required',
+            'zipcode' => 'required|max:255',
+            'address' => 'required|max:255',
+            'city' => 'required|max:255',
+            'house_number' => 'required|max:255',
+            'country' => 'required|max:255',
             'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'amount' => 'required|integer|between:1,'.$event->max_amount_tickets_per_person.''
         ]);

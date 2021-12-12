@@ -71,7 +71,8 @@ class EventController extends Controller
                 ->get();
             }
         }
-        return view('event/event', ['events' => $events, 'filter_location' => $filter_location, 'filter_date_start' => $filter_date_start, 'filter_date_end' => $filter_date_end]);
+        $sort_order = $sort[0] . "-" . $sort[1];
+        return view('event/event', ['events' => $events, 'filter_location' => $filter_location, 'filter_date_start' => $filter_date_start, 'filter_date_end' => $filter_date_end, 'sort_order' => $sort_order]);
     }  
 
 }

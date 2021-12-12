@@ -33,11 +33,11 @@ class RestaurantItemController extends Controller
     public function store()
     {
         request()->validate([
-            'zipcode' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'house_number' => 'required',
-            'country' => 'required'
+            'zipcode' => 'required|max:255',
+            'address' => 'required|max:255',
+            'city' => 'required|max:255',
+            'house_number' => 'required|max:255',
+            'country' => 'required|max:255'
         ]);
         $amount = request('amount');
 

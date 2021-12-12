@@ -22,5 +22,15 @@ return [
     'soldout' => 'Tickets zijn uitverkocht!',
     'kitchentype' => 'Keuken type',
     'sort' => 'Sorteer',
-    'all' => 'Alles'
+    'all' => 'Alles',
+    'date' => 'Datum',
+    'time' => 'Tijd',
+    'choose' => 'Kies',
+    'namedesc' => 'Naam Aflopend',
+    'nameasc' => 'Naam Oplopend',
+    'locationdesc' => 'Locatie Aflopend',
+    'locationasc' => 'Locatie Oplopend',
+    'datedesc' => 'Datum Aflopend',
+    'dateasc' => 'Datum Oplopend',
+    'closed' => 'Gesloten'
 ];

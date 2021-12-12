@@ -9,7 +9,7 @@
             <h1>{{$restaurant->name}}</h1>
             <h2>{{$restaurant->location}}</h2>
             <p>Open: {{$restaurant->open_time}}</p>
-            <p>closed: {{$restaurant->close_time}}</p>
+            <p>{{__('messages.closed')}}: {{$restaurant->close_time}}</p>
             @if(App::getLocale() == "en")
                 <p>Kitchen type: {{$restaurant->kitchen_type2}}</p>                 
             @else
@@ -22,9 +22,9 @@
             <form method="POST" action="/restaurant/{{$restaurant->id}}">
                 @csrf
                 <div class="form-group">
-                    <label>Datum:</label>
+                    <label>{{__('messages.date')}}</label>
                     <input type="date" name="day" class="form-control" value={{$day}} required>
-                    <input type="submit" value="Kies" class="btn btn-primary">
+                    <input type="submit" style="margin-top: 15px;" value="{{__('messages.choose')}}" class="btn btn-primary">
                 </div>
             </form>
             @if($availableTime != null)
@@ -33,7 +33,7 @@
                     <input type="hidden" name="restaurant_id" value="{{$restaurant->id}}">
                     <input type="hidden" name="day" value="{{$day}}">
                     <div class="form-group">
-                        <p>Tijd:</p>
+                        <p>{{__('messages.time')}}</p>
                         @foreach ($availableTime as $time)
                             <input style="margin-left: 0px; margin-top: 7px" class="form-check-input" type="radio" name="time" id="exampleRadios1-{{$time}}" value="{{$time}}" checked>
                             <label style="margin-left: 15px" class="form-check-label" for="exampleRadios1-{{$time}}">
