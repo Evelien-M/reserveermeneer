@@ -32,5 +32,8 @@ return [
     'locationasc' => 'Locatie Oplopend',
     'datedesc' => 'Datum Aflopend',
     'dateasc' => 'Datum Oplopend',
-    'closed' => 'Gesloten'
+    'closed' => 'Gesloten',
+    'cinema' => 'Bioscoop',
+    'welcometext' => 'Welkom bij de nieuwe reseerplatform waar onder andere Evenementen, bioscopen en restaurents gereserveerd kunt worden.',
+    'myreservation' => 'Mijn reserveringen'
 ];

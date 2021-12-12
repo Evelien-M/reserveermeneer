@@ -44,10 +44,10 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="/event">Event</a>
+                            <a class="nav-link" href="/event">{{__('messages.events')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/cinema">Bioscoop</a>
+                            <a class="nav-link" href="/cinema">{{__('messages.cinema')}}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/restaurant">Restaurant</a>
@@ -71,7 +71,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/reservations">Mijn reserveringen</a>
+                                <a class="nav-link" href="/reservations">{{__('messages.myreservation')}}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

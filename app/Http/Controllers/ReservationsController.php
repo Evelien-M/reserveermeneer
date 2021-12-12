@@ -30,7 +30,7 @@ class ReservationsController extends Controller
     private function getEventTickets()
     {
         return DB::table('event_tickets')
-        ->select('event_tickets.id as id','name as name','location as location','event_start_date as event_start_date', 'event_end_date as event_end_date', 'price as price', 'days as days')
+        ->select('event_tickets.id as id','name as name', 'event_tickets.image as image' ,'location as location','event_start_date as event_start_date', 'event_end_date as event_end_date', 'price as price', 'days as days')
             ->join('events', 'events.id', '=', 'event_tickets.events_id')
             ->where('event_tickets.user_id', '=', Auth::user()->id)
             ->get();

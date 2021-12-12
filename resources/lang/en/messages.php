@@ -31,5 +31,9 @@ return [
     'locationdesc' => 'Location descending',
     'locationasc' => 'Location ascending',
     'datedesc' => 'Date descending',
-    'dateasc' => 'Date ascending'
+    'dateasc' => 'Date ascending',
+    'closed' => 'Closed',
+    'cinema' => 'Cinema',
+    'welcometext' => 'Welcome to the new reservation platform where, among other things, events, cinemas and restaurants can be reserved.',
+    'myreservation' => 'My reservation'
 ];

@@ -9,6 +9,7 @@
         <table style="width: 100%">
             <thead>
               <tr>
+                <th></th>
                 <th>{{__('messages.name')}}</th>
                 <th>{{__('messages.location')}}</th>
                 <th>{{__('messages.start')}}</th>
@@ -22,6 +23,7 @@
             <tbody>
                 @foreach ($event as $item)
                     <tr>
+                        <td><img src="{{asset('images/reservation/'. $item->image. '')}}" style="height: 45px"></td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->location}}</td>
                         <td>{{$item->event_start_date}}</td>

@@ -36,7 +36,7 @@
                     <option value="location-DESC" {{$sort_order == "location-DESC" ? 'selected' : ''}}>{{__('messages.locationdesc')}}</option>
                     <option value="location-ASC" {{$sort_order == "location-ASC" ? 'selected' : ''}}>{{__('messages.locationasc')}}</option>
                 </select>
-                <input type="submit" style="margin-top: 15px" class="btn btn-primary" value="Sorteer"/>
+                <input type="submit" style="margin-top: 15px" class="btn btn-primary" value="{{__('messages.sort')}}"/>
             </div>
         </div>
     </form>
