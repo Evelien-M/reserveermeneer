@@ -32,7 +32,7 @@ class CinemaController extends Controller
             ->select('halls_has_movies.id as id' ,'movies.name as movie_name', 'halls.name as hall_name' , 'movies.image as image', 'movies.price as price', 'halls_has_movies.movie_start_date as movie_start_date','halls_has_movies.movie_end_date as movie_end_date')
             ->Join('halls', 'halls.id', '=', 'halls_has_movies.hall_id')
             ->Join('movies', 'movies.id', '=', 'halls_has_movies.movie_id')
-            ->where('movies.name', '=', $filter_name)
+            ->where('movies.name', 'LIKE', '%'. $filter_name .'%')
             ->where('halls_has_movies.movie_start_date', '>', $now)
             ->orderBy($sort[0], $sort[1])
             ->get();
