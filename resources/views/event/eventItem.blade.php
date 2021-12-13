@@ -25,7 +25,6 @@
                         <input name="input_img" type="file" required id="imageInput" accept="image/png, image/gif, image/jpeg">
                     </div>
                     <p>{{__('messages.days')}}</p>
-                    <?php $i = 0; ?>
                     @foreach ($dayslist as $day)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="datecheck[]" value="{{$day}}" id="check{{$day}}">
@@ -33,7 +32,6 @@
                             {{$day}}
                             </label>
                         </div>
-                        <?php $i++; ?>
                     @endforeach
                     <br>
                     <div class="form-group">
@@ -67,7 +65,7 @@
                           </div>
                         @else
                             <button type="submit" class="btn btn-primary">{{__('messages.book')}}</button>
-                            <p> {{$ticketsLeft}} {{__('messages.ticketsleft')}}</p>
+                            <p style="margin-left: 15px"> {{$ticketsLeft}} {{__('messages.ticketsleft')}}</p>
                         @endif
                         
                     </div>
